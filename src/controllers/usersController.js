@@ -53,9 +53,22 @@ export const deleteUser = async (req, res) => {
 
 export const getUser = async (req, res) => {
     try {
-        console.log(req.query)
-        const { email } = req.query;
-        const response = await User.find({ email: email })
+        console.log(req.user)
+        const{email} = req.user;
+        const response = await User.findOne({email},{email:1,name:1})
+        res.send(response);
+    }
+    catch (err) {
+        console.log(err)
+        res.send(err)
+    }
+}
+
+export const updateuser=async(req,res)=>{
+    try {
+        console.log(req.user)
+        const{email} = req.user;
+        const response = await User.put({email},{email:1,name:1})
         res.send(response);
     }
     catch (err) {

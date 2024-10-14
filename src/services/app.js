@@ -5,7 +5,7 @@ import cors from "cors";
 
 const app = express();
 app.use(cors({
-    origin:["http://localhost:8000","http://localhost:5175","http://localhost:5173"]
+    origin:["http://localhost:8000","http://localhost:5173"]
 }))
 app.use(express.json())
 app.use(morgan('tiny'))
