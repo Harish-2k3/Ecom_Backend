@@ -9,6 +9,7 @@ app.use(cors({
 }))
 app.use(express.json())
 app.use(morgan('tiny'))
+app.use('/uploads',express.static('uploads'))
 app.use(router);
 app.get('/',(req,res)=>res.send("Hello server!"));
 

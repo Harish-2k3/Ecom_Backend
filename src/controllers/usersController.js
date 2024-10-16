@@ -56,7 +56,7 @@ import { fileUpload } from "../services/imageUpload.js";
 export const getUser = async (req, res) => {
     try {
         const{email} = req.user;
-        const response = await User.findOne({email},{email:1,name:1})
+        const response = await User.findOne({email},{email:1,name:1,profileimage:1})
         res.send(response);
     }
     catch (err) {
@@ -65,6 +65,7 @@ export const getUser = async (req, res) => {
     }
 }
 export const updateuser=async(req,res)=>{
+    console.log(req)
     try {
         var filepath;
         if(req.file){
